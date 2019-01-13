@@ -11,7 +11,7 @@ import {
   WINDY,
   THUNDER,
   DRIZZLE
-} from "./../constants/weathers";
+} from "./../../../constants/weathers";
 
 const stateToIconName = weatherState => {
   switch (weatherState) {
@@ -37,19 +37,21 @@ const stateToIconName = weatherState => {
 };
 
 const getWeatherIcon = weatherState => {
+  const sizeIcon = "4x";
   return (
     <WeatherIcons
       className="wicon"
       name={stateToIconName(weatherState)}
-      size="4x"
+      size={sizeIcon}
     />
   );
 };
 
 const WeatherTemperature = ({ temperature, weatherState }) => (
-  <div>
+  <div className="weatherTemperatureCont">
     {getWeatherIcon(weatherState)}
-    <span>{`${temperature} C°`}</span>
+    <span className="temperature">{`${temperature}`}</span>
+    <span className="temperatureType">{` C°`}</span>
   </div>
 );
 
